@@ -1,7 +1,7 @@
 var mongoose = require("mongoose")
 var { Schema, model } = mongoose  //extracting Schema, model form mongoose
 
-//Creating user_profile schema
+//Creating user_profile  schema
 var user_profile = new Schema({
     
     // Firstname is required and between 3-30 character
@@ -61,4 +61,4 @@ var user_profile = new Schema({
  {timestamps: true})
 
 //Exporting model
-exports.User = model("User", user_profile)
+exports.UserProfile = model("user_profile", user_profile)
