@@ -8,6 +8,7 @@ require("dotenv").config()
 
 // Importing Routes
 const add_user_profile = require("./routes/add_user_profile")
+const login = require("./routes/login_user")
 
 
 /************** Database Connectivity ****************/
@@ -20,6 +21,7 @@ mongoose.connect(process.env.MONGO_URI)
     })
 /***************************************************/
 
+// Parsing Incoming request to Json Object
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
@@ -27,6 +29,8 @@ app.use(express.urlencoded({
 
 // Using Routes
 app.use("/new_user", add_user_profile)
+app.use("/login", login)
+
 
 /*********** Running server on 3000 port ************** */
 app.listen( 3000, () => console.log("Running on port 3000"))
