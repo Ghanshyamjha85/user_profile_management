@@ -10,6 +10,7 @@ require("dotenv").config()
 const add_user_profile = require("./routes/add_user_profile")
 const login = require("./routes/login_user")
 const view = require("./routes/view_user")
+const update = require('./routes/update_users')
 
 
 /************** Database Connectivity ****************/
@@ -32,6 +33,7 @@ app.use(express.urlencoded({
 app.use("/new_user", add_user_profile)
 app.use("/login", login)
 app.use('/view', view)
+app.use('/update', update)
 
 
 /*********** Running server on 3000 port ************** */
