@@ -11,7 +11,7 @@ app.post('', async (req, res) => {
     if (!req.body.email || !req.body.password) return res.status(400).send("Bad Request")
 
     //Checking if user with given email is found or not
-    var user = await UserProfile.findOne({ email: req.body.email })
+    if (!decode.email || !decode.exp) return res.status(400).send("token is worng")
     if (!user) return res.status(401).send("Email or Passord is Invalid!!")
 
     //Checking if password is correct or not
