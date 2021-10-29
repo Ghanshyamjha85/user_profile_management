@@ -30,7 +30,7 @@ app.use(express.urlencoded({
 }));
 
 // Using Routes
-app.use("/new_user", add_user_profile)
+app.use("/adduser", add_user_profile)
 app.use("/login", login)
 app.use('/view', view)
 app.use('/update', update)

@@ -2,7 +2,7 @@ const { UserProfile } = require("../models/user_profile")
 const express = require("express")
 const app = express()
 const bcrypt = require("bcrypt")
-const jwt = require("jsonwebtoken")
+const { generageToken } = require("../middlewere/auth")
 require('dotenv').config();
 
 app.post('', async (req, res) => {
@@ -22,24 +22,4 @@ app.post('', async (req, res) => {
     var token = generageToken(user)
     return res.send(token)
 })
-
-
-// Function to Generate JWT
-generageToken = (user) => {
-
-    const token = jwt.sign(
-        {
-            _id: user._id,
-            email: user.email,
-            role : user.role
-        },
-        process.env.SECRET_KEY,
-    )
-
-    var res = {
-        "token": token,
-    }
-    return res
-}
-
 module.exports = app

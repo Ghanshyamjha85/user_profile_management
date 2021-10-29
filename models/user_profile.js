@@ -41,7 +41,8 @@ var user_profile = new Schema({
     password: {
         type: String,
         required: true,
-        maxlength: 256
+        maxlength: 256,
+        select : false
     },
 
     // Role is string and it can have only two value either 'user' and 'admin'
